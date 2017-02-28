@@ -8,8 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		5B516813389B5FB066CA48E3 /* Pods_PrumtMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE4D477E1059D88DDCE26FB /* Pods_PrumtMe.framework */; };
+		9A494A531E658AE600CFFB44 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A521E658AE600CFFB44 /* ShareViewController.swift */; };
+		9A494A551E658C2400CFFB44 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A541E658C2400CFFB44 /* InfoViewController.swift */; };
+		9A494A571E658EFB00CFFB44 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A561E658EFB00CFFB44 /* CameraViewController.swift */; };
+		9A494A591E658FBD00CFFB44 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A581E658FBD00CFFB44 /* AdViewController.swift */; };
+		9A494A611E65BF2900CFFB44 /* CameraExampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A5C1E65BF2900CFFB44 /* CameraExampleViewController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9A494A621E65BF2900CFFB44 /* ios_image_load.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A5E1E65BF2900CFFB44 /* ios_image_load.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9A494A631E65BF2900CFFB44 /* tensorflow_utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A601E65BF2900CFFB44 /* tensorflow_utils.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9A494A651E65C03D00CFFB44 /* libtensorflow-core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A494A641E65C03D00CFFB44 /* libtensorflow-core.a */; };
+		9A494A681E65C06C00CFFB44 /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A494A661E65C06C00CFFB44 /* libprotobuf-lite.a */; };
+		9A494A691E65C06C00CFFB44 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A494A671E65C06C00CFFB44 /* libprotobuf.a */; };
+		9A494A6B1E65C4BC00CFFB44 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A494A6A1E65C4BC00CFFB44 /* Accelerate.framework */; };
+		9A494A761E65C9B200CFFB44 /* grace_hopper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A494A721E65C9B200CFFB44 /* grace_hopper.jpg */; };
+		9A494A771E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A494A731E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt */; };
+		9A494A781E65C9B200CFFB44 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9A494A741E65C9B200CFFB44 /* LICENSE */; };
+		9A494A791E65C9B200CFFB44 /* tensorflow_inception_graph.pb in Resources */ = {isa = PBXBuildFile; fileRef = 9A494A751E65C9B200CFFB44 /* tensorflow_inception_graph.pb */; };
 		9ABA92021E5596D5001A515A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA92011E5596D5001A515A /* AppDelegate.swift */; };
-		9ABA92041E5596D5001A515A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA92031E5596D5001A515A /* ViewController.swift */; };
 		9ABA92071E5596D5001A515A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA92051E5596D5001A515A /* Main.storyboard */; };
 		9ABA92091E5596D5001A515A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA92081E5596D5001A515A /* Assets.xcassets */; };
 		9ABA920C1E5596D5001A515A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA920A1E5596D5001A515A /* LaunchScreen.storyboard */; };
@@ -18,9 +32,26 @@
 /* Begin PBXFileReference section */
 		56410DAE762A052A49C6E841 /* Pods-PrumtMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrumtMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrumtMe/Pods-PrumtMe.release.xcconfig"; sourceTree = "<group>"; };
 		6EE4D477E1059D88DDCE26FB /* Pods_PrumtMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrumtMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A494A521E658AE600CFFB44 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = ViewControllers/ShareViewController.swift; sourceTree = "<group>"; };
+		9A494A541E658C2400CFFB44 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = ViewControllers/InfoViewController.swift; sourceTree = "<group>"; };
+		9A494A561E658EFB00CFFB44 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ViewControllers/CameraViewController.swift; sourceTree = "<group>"; };
+		9A494A581E658FBD00CFFB44 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdViewController.swift; path = ViewControllers/AdViewController.swift; sourceTree = "<group>"; };
+		9A494A5B1E65BF2900CFFB44 /* CameraExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraExampleViewController.h; sourceTree = "<group>"; };
+		9A494A5C1E65BF2900CFFB44 /* CameraExampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraExampleViewController.mm; sourceTree = "<group>"; };
+		9A494A5D1E65BF2900CFFB44 /* ios_image_load.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_image_load.h; sourceTree = "<group>"; };
+		9A494A5E1E65BF2900CFFB44 /* ios_image_load.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_image_load.mm; sourceTree = "<group>"; };
+		9A494A5F1E65BF2900CFFB44 /* tensorflow_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tensorflow_utils.h; sourceTree = "<group>"; };
+		9A494A601E65BF2900CFFB44 /* tensorflow_utils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tensorflow_utils.mm; sourceTree = "<group>"; };
+		9A494A641E65C03D00CFFB44 /* libtensorflow-core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libtensorflow-core.a"; path = "../../tensorflow/tensorflow/contrib/makefile/gen/lib/libtensorflow-core.a"; sourceTree = "<group>"; };
+		9A494A661E65C06C00CFFB44 /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libprotobuf-lite.a"; path = "../../tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib/libprotobuf-lite.a"; sourceTree = "<group>"; };
+		9A494A671E65C06C00CFFB44 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = ../../tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib/libprotobuf.a; sourceTree = "<group>"; };
+		9A494A6A1E65C4BC00CFFB44 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		9A494A721E65C9B200CFFB44 /* grace_hopper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grace_hopper.jpg; sourceTree = "<group>"; };
+		9A494A731E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imagenet_comp_graph_label_strings.txt; sourceTree = "<group>"; };
+		9A494A741E65C9B200CFFB44 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9A494A751E65C9B200CFFB44 /* tensorflow_inception_graph.pb */ = {isa = PBXFileReference; lastKnownFileType = file; path = tensorflow_inception_graph.pb; sourceTree = "<group>"; };
 		9ABA91FE1E5596D5001A515A /* PrumtMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrumtMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABA92011E5596D5001A515A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9ABA92031E5596D5001A515A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9ABA92061E5596D5001A515A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9ABA92081E5596D5001A515A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ABA920B1E5596D5001A515A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,7 +64,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A494A6B1E65C4BC00CFFB44 /* Accelerate.framework in Frameworks */,
+				9A494A691E65C06C00CFFB44 /* libprotobuf.a in Frameworks */,
 				5B516813389B5FB066CA48E3 /* Pods_PrumtMe.framework in Frameworks */,
+				9A494A651E65C03D00CFFB44 /* libtensorflow-core.a in Frameworks */,
+				9A494A681E65C06C00CFFB44 /* libprotobuf-lite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +78,7 @@
 		5308D795D59B2801A6BB8B14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A494A6A1E65C4BC00CFFB44 /* Accelerate.framework */,
 				6EE4D477E1059D88DDCE26FB /* Pods_PrumtMe.framework */,
 			);
 			name = Frameworks;
@@ -57,9 +93,47 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9A494A511E658AA900CFFB44 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9A494A521E658AE600CFFB44 /* ShareViewController.swift */,
+				9A494A541E658C2400CFFB44 /* InfoViewController.swift */,
+				9A494A561E658EFB00CFFB44 /* CameraViewController.swift */,
+				9A494A581E658FBD00CFFB44 /* AdViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9A494A5A1E65BF2900CFFB44 /* Tensorflow */ = {
+			isa = PBXGroup;
+			children = (
+				9A494A5B1E65BF2900CFFB44 /* CameraExampleViewController.h */,
+				9A494A5C1E65BF2900CFFB44 /* CameraExampleViewController.mm */,
+				9A494A5D1E65BF2900CFFB44 /* ios_image_load.h */,
+				9A494A5E1E65BF2900CFFB44 /* ios_image_load.mm */,
+				9A494A5F1E65BF2900CFFB44 /* tensorflow_utils.h */,
+				9A494A601E65BF2900CFFB44 /* tensorflow_utils.mm */,
+			);
+			path = Tensorflow;
+			sourceTree = "<group>";
+		};
+		9A494A711E65C9B200CFFB44 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				9A494A721E65C9B200CFFB44 /* grace_hopper.jpg */,
+				9A494A731E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt */,
+				9A494A741E65C9B200CFFB44 /* LICENSE */,
+				9A494A751E65C9B200CFFB44 /* tensorflow_inception_graph.pb */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		9ABA91F51E5596D5001A515A = {
 			isa = PBXGroup;
 			children = (
+				9A494A661E65C06C00CFFB44 /* libprotobuf-lite.a */,
+				9A494A671E65C06C00CFFB44 /* libprotobuf.a */,
+				9A494A641E65C03D00CFFB44 /* libtensorflow-core.a */,
 				9ABA92001E5596D5001A515A /* PrumtMe */,
 				9ABA91FF1E5596D5001A515A /* Products */,
 				5D720F5820D94A1A6E3DFF84 /* Pods */,
@@ -78,8 +152,10 @@
 		9ABA92001E5596D5001A515A /* PrumtMe */ = {
 			isa = PBXGroup;
 			children = (
+				9A494A711E65C9B200CFFB44 /* data */,
+				9A494A5A1E65BF2900CFFB44 /* Tensorflow */,
+				9A494A511E658AA900CFFB44 /* ViewControllers */,
 				9ABA92011E5596D5001A515A /* AppDelegate.swift */,
-				9ABA92031E5596D5001A515A /* ViewController.swift */,
 				9ABA92051E5596D5001A515A /* Main.storyboard */,
 				9ABA92081E5596D5001A515A /* Assets.xcassets */,
 				9ABA920A1E5596D5001A515A /* LaunchScreen.storyboard */,
@@ -151,8 +227,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A494A761E65C9B200CFFB44 /* grace_hopper.jpg in Resources */,
+				9A494A771E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt in Resources */,
+				9A494A781E65C9B200CFFB44 /* LICENSE in Resources */,
 				9ABA920C1E5596D5001A515A /* LaunchScreen.storyboard in Resources */,
 				9ABA92091E5596D5001A515A /* Assets.xcassets in Resources */,
+				9A494A791E65C9B200CFFB44 /* tensorflow_inception_graph.pb in Resources */,
 				9ABA92071E5596D5001A515A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +292,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9ABA92041E5596D5001A515A /* ViewController.swift in Sources */,
+				9A494A621E65BF2900CFFB44 /* ios_image_load.mm in Sources */,
+				9A494A611E65BF2900CFFB44 /* CameraExampleViewController.mm in Sources */,
+				9A494A531E658AE600CFFB44 /* ShareViewController.swift in Sources */,
+				9A494A591E658FBD00CFFB44 /* AdViewController.swift in Sources */,
+				9A494A571E658EFB00CFFB44 /* CameraViewController.swift in Sources */,
+				9A494A551E658C2400CFFB44 /* InfoViewController.swift in Sources */,
+				9A494A631E65BF2900CFFB44 /* tensorflow_utils.mm in Sources */,
 				9ABA92021E5596D5001A515A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,9 +421,94 @@
 			baseConfigurationReference = A5F47BBF417DB5B4FEFB7952 /* Pods-PrumtMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
 				DEVELOPMENT_TEAM = 69B39F3M5G;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/Google-Mobile-Ads-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/downloads/eigen",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/downloads/protobuf/src",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/downloads",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/gen/proto",
+					"$(SRCROOT)/../../tensorflow",
+				);
 				INFOPLIST_FILE = PrumtMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					/Users/fauquettefred/tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib,
+					/Users/fauquettefred/tensorflow/tensorflow/contrib/makefile/gen/lib,
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AddressBook\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleInterchangeUtilities\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleSymbolUtilities\"",
+					"-framework",
+					"\"GoogleToolboxForMac\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-force_load",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/gen/lib/libtensorflow-core.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fredfoc.PrumtMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -349,9 +520,94 @@
 			baseConfigurationReference = 56410DAE762A052A49C6E841 /* Pods-PrumtMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
 				DEVELOPMENT_TEAM = 69B39F3M5G;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/Google-Mobile-Ads-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/downloads/eigen",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/downloads/protobuf/src",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/downloads",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/gen/proto",
+					"$(SRCROOT)/../../tensorflow",
+				);
 				INFOPLIST_FILE = PrumtMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					/Users/fauquettefred/tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib,
+					/Users/fauquettefred/tensorflow/tensorflow/contrib/makefile/gen/lib,
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AddressBook\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleInterchangeUtilities\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleSymbolUtilities\"",
+					"-framework",
+					"\"GoogleToolboxForMac\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-force_load",
+					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/gen/lib/libtensorflow-core.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fredfoc.PrumtMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -377,6 +633,7 @@
 				9ABA92121E5596D5001A515A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
