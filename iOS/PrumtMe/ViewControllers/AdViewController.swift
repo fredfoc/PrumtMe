@@ -9,7 +9,15 @@
 import UIKit
 import GoogleMobileAds
 
+protocol AdViewControllerDelegate: class {
+    func adViewDidReceiveAd()
+}
+
+
 class AdViewController: UIViewController {
+    
+    weak var adViewControllerDelegate: AdViewControllerDelegate?
+    
     lazy var adBannerView: GADBannerView = {
         let adBannerView = GADBannerView(adSize: kGADAdSizeBanner)
         adBannerView.adUnitID = "ca-app-pub-6909125969763193/4462113060"
@@ -22,7 +30,6 @@ class AdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adBannerView.load(GADRequest())
-        view.layer.cornerRadius = 4
     }
 }
 
@@ -30,6 +37,7 @@ extension AdViewController: GADBannerViewDelegate {
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         self.view.addSubview(bannerView)
+        adViewControllerDelegate?.adViewDidReceiveAd()
     }
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5B516813389B5FB066CA48E3 /* Pods_PrumtMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE4D477E1059D88DDCE26FB /* Pods_PrumtMe.framework */; };
-		9A494A531E658AE600CFFB44 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A521E658AE600CFFB44 /* ShareViewController.swift */; };
-		9A494A551E658C2400CFFB44 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A541E658C2400CFFB44 /* InfoViewController.swift */; };
 		9A494A571E658EFB00CFFB44 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A561E658EFB00CFFB44 /* CameraViewController.swift */; };
 		9A494A591E658FBD00CFFB44 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A581E658FBD00CFFB44 /* AdViewController.swift */; };
 		9A494A611E65BF2900CFFB44 /* CameraExampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A5C1E65BF2900CFFB44 /* CameraExampleViewController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -32,8 +30,6 @@
 /* Begin PBXFileReference section */
 		56410DAE762A052A49C6E841 /* Pods-PrumtMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrumtMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrumtMe/Pods-PrumtMe.release.xcconfig"; sourceTree = "<group>"; };
 		6EE4D477E1059D88DDCE26FB /* Pods_PrumtMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrumtMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A494A521E658AE600CFFB44 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = ViewControllers/ShareViewController.swift; sourceTree = "<group>"; };
-		9A494A541E658C2400CFFB44 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = ViewControllers/InfoViewController.swift; sourceTree = "<group>"; };
 		9A494A561E658EFB00CFFB44 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ViewControllers/CameraViewController.swift; sourceTree = "<group>"; };
 		9A494A581E658FBD00CFFB44 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdViewController.swift; path = ViewControllers/AdViewController.swift; sourceTree = "<group>"; };
 		9A494A5B1E65BF2900CFFB44 /* CameraExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraExampleViewController.h; sourceTree = "<group>"; };
@@ -98,8 +94,6 @@
 		9A494A511E658AA900CFFB44 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A494A521E658AE600CFFB44 /* ShareViewController.swift */,
-				9A494A541E658C2400CFFB44 /* InfoViewController.swift */,
 				9A494A561E658EFB00CFFB44 /* CameraViewController.swift */,
 				9A494A581E658FBD00CFFB44 /* AdViewController.swift */,
 				9ACC654A1E67141A00D477E7 /* IntroViewController.swift */,
@@ -288,12 +282,10 @@
 			files = (
 				9A494A621E65BF2900CFFB44 /* ios_image_load.mm in Sources */,
 				9A494A611E65BF2900CFFB44 /* CameraExampleViewController.mm in Sources */,
-				9A494A531E658AE600CFFB44 /* ShareViewController.swift in Sources */,
 				9A494A591E658FBD00CFFB44 /* AdViewController.swift in Sources */,
 				9A494A571E658EFB00CFFB44 /* CameraViewController.swift in Sources */,
 				9ACC654B1E67141A00D477E7 /* IntroViewController.swift in Sources */,
 				9A9C660C1E66F584004D6E09 /* TensorFlowManager.mm in Sources */,
-				9A494A551E658C2400CFFB44 /* InfoViewController.swift in Sources */,
 				9A494A631E65BF2900CFFB44 /* tensorflow_utils.mm in Sources */,
 				9ABA92021E5596D5001A515A /* AppDelegate.swift in Sources */,
 			);

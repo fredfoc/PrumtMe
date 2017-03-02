@@ -12,8 +12,26 @@ import AVFoundation
 
 class IntroViewController: UIViewController {
     
+    @IBOutlet weak var descriptionTextField: UITextView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var bottomStartConstraint: NSLayoutConstraint!
     @IBAction func startCamera(_ sender: Any) {
         askPermission()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        descriptionTextField.alpha = 0
+        bottomStartConstraint.constant = (view.frame.height - startButton.frame.width) / 2
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 0.7) { 
+            self.descriptionTextField.alpha = 1
+            self.bottomStartConstraint.constant = bottomConstantPrumtButton
+            self.view.layoutIfNeeded()
+        }
     }
     
     private func startCamera() {

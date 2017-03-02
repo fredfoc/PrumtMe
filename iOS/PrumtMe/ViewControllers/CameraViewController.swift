@@ -8,6 +8,12 @@
 
 import UIKit
 import AVFoundation
+import MBProgressHUD
+
+let prumtMeErrorTitle = "PrumtMe OOPS..."
+let bottomConstantButton: CGFloat = 16
+let outConstantButton: CGFloat = -200
+let bottomConstantPrumtButton: CGFloat = 60
 
 
 class CameraViewController: UIViewController {
@@ -17,17 +23,41 @@ class CameraViewController: UIViewController {
     fileprivate var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     fileprivate var videoDataOutput: AVCaptureVideoDataOutput?
     fileprivate var videoDataOutputQueue: DispatchQueue?
+    fileprivate var isFrozen = false
+    fileprivate var isUsingBackCamera = true
+    
+    fileprivate var prumtResult: Int = 0
     
     @IBOutlet fileprivate weak var freezeButton: UIButton!
     @IBOutlet fileprivate weak var infoButton: UIButton!
     @IBOutlet fileprivate weak var switchCameraButton: UIButton!
+    @IBOutlet fileprivate weak var shareButton: UIButton!
     @IBOutlet fileprivate weak var previewView: UIView!
+    @IBOutlet fileprivate weak var previewImage: UIImageView!
+    @IBOutlet fileprivate weak var prumtValueLabel: UILabel!
+    @IBOutlet fileprivate weak var screenedView: UIView!
     
+    
+    
+    
+    @IBOutlet fileprivate weak var adViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var bottomSwitchCameraConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var bottomShareConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setAVSession()
+        adViewTopConstraint.constant = outConstantButton
+        bottomSwitchCameraConstraint.constant = bottomConstantButton
+        bottomShareConstraint.constant = outConstantButton
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "adView", let adViewController = segue.destination as? AdViewController {
+            adViewController.adViewControllerDelegate = self
+        }
+    }
+    
     
     private func setAVSession() {
         session = AVCaptureSession()
@@ -43,13 +73,15 @@ class CameraViewController: UIViewController {
                 input = nil
                 print(error!.localizedDescription)
             }
+            
+            
+            
             if error == nil && session.canAddInput(input) {
                 session.addInput(input)
                 
                 stillImageOutput = AVCapturePhotoOutput()
                 if (session.canAddOutput(stillImageOutput)) {
                     session.addOutput(stillImageOutput)
-                    
                 }
                 
                 videoDataOutput = AVCaptureVideoDataOutput()
@@ -74,13 +106,51 @@ class CameraViewController: UIViewController {
         }
     }
     
+    @IBAction fileprivate func shareResult(_ sender: Any) {
+        MBProgressHUD.showAdded(to: view, animated: true)
+        makeScreenShot {[weak self] (image) in
+            if let image = image {
+                let shareText = String(format: "Oops, %d%% in common with him...", self?.prumtResult ?? 0)
+                let vc = UIActivityViewController(activityItems: [shareText, image], applicationActivities: [])
+                DispatchQueue.main.async(){
+                    if let view = self?.view {
+                        MBProgressHUD.hide(for: view, animated: true)
+                    }
+                    self?.present(vc, animated: true)
+                }
+            }
+        }
+        
+    }
     
+    private func makeScreenShot(completion:@escaping (UIImage?)->()) {
+        DispatchQueue.global(qos: .default).async {[unowned self] (_) in
+            UIGraphicsBeginImageContext(self.screenedView.frame.size)
+            self.screenedView.layer.render(in: UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            completion(image)
+        }
+    }
     
+
+    @IBAction fileprivate func toggleVideo() {
+        if !isFrozen {
+            displayAd(delay: 5)
+            previewImage.isHidden = false
+            previewImage.image = nil
+            MBProgressHUD.showAdded(to: view, animated: true)
+            nbrAttemptForPhoto = 0
+            capturePhoto()
+        } else {
+            previewImage.isHidden = true
+            session?.startRunning()
+        }
+        isFrozen = !isFrozen
+        switchButtons()
+    }
     
-    
-    
-    
-    @IBAction fileprivate func freezeImage(_ sender: Any) {
+    fileprivate func capturePhoto() {
         let settings = AVCapturePhotoSettings()
         let previewFormat = [
             kCVPixelBufferPixelFormatTypeKey as String: kCMPixelFormat_32BGRA
@@ -88,8 +158,23 @@ class CameraViewController: UIViewController {
         settings.previewPhotoFormat = previewFormat
         stillImageOutput?.capturePhoto(with: settings, delegate: self)
     }
+    
+    fileprivate func switchButtons() {
+        UIView.animate(withDuration: 0.4,
+                       animations: {
+                        self.bottomShareConstraint.constant = self.isFrozen ? bottomConstantButton : outConstantButton
+                        self.bottomSwitchCameraConstraint.constant = self.isFrozen ? outConstantButton : bottomConstantButton
+                        self.view.layoutIfNeeded()
+        })
+    }
+    
+    fileprivate func updateResultLabel() {
+        prumtValueLabel.text = String(format: "%d%%", prumtResult)
+    }
+    
+    
 
-    @IBAction func switchCamera(_ sender: Any) {
+    @IBAction fileprivate func switchCamera(_ sender: Any) {
         if let session = session {
             //Indicate that some changes will be made to the session
             session.beginConfiguration()
@@ -122,9 +207,16 @@ class CameraViewController: UIViewController {
             }
             
             if newVideoInput == nil || err != nil {
-                print("Error creating capture device input: \(err?.localizedDescription)")
+                DispatchQueue.main.async(){
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    let alert = UIAlertController(title: prumtMeErrorTitle , message:  "We encountered a problem when switching camera. Sorry, please retry...", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                }
             } else {
                 session.addInput(newVideoInput)
+                isUsingBackCamera = !isUsingBackCamera
             }
             
             //Commit all the configuration changes at once
@@ -148,6 +240,8 @@ class CameraViewController: UIViewController {
     @IBAction fileprivate func backToCamera(segue:UIStoryboardSegue) {}
 }
 
+
+fileprivate var nbrAttemptForPhoto = 0
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func capture(_ captureOutput: AVCapturePhotoOutput,
                  didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?,
@@ -155,40 +249,101 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
                  resolvedSettings: AVCaptureResolvedPhotoSettings,
                  bracketSettings: AVCaptureBracketedStillImageSettings?,
                  error: Error?) {
-        
-        if let error = error {
-            print("error occure : \(error.localizedDescription)")
+        var isInError = false
+        if error != nil {
+            isInError = true
         }
         
         if  let sampleBuffer = photoSampleBuffer,
             let previewBuffer = previewPhotoSampleBuffer,
-            let dataImage =  AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer:  sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
+            let dataImage =  AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer:  sampleBuffer, previewPhotoSampleBuffer: previewBuffer),
+            !isInError
+            {
             print(UIImage(data: dataImage)?.size as Any)
             
             let dataProvider = CGDataProvider(data: dataImage as CFData)
             let cgImageRef: CGImage! = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
-            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
-            
+                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: isUsingBackCamera ? .right : .leftMirrored)
+                DispatchQueue.main.async(){
+                    self.previewImage.image = image
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.session?.stopRunning()
+                }
             
             
         } else {
-            print("some error here")
+            isInError = true
+        }
+        
+        if isInError {
+            nbrAttemptForPhoto += 1
+            if nbrAttemptForPhoto < 5 {
+                capturePhoto()
+            } else {
+                DispatchQueue.main.async(){
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    let alert = UIAlertController(title: prumtMeErrorTitle , message:  "We encountered a problem during the screenshot. Sorry, please retry...", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                    self.toggleVideo()
+                }
+            }
         }
     }
 }
+
+
 
 extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ captureOutput: AVCaptureOutput!,
                        didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
                        from connection: AVCaptureConnection!) {
-        
+        print("received")
         if let tensorFlowManager = TensorFlowManager.shared(),
             tensorFlowManager.modelIsLoaded,
             let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
         {
-            tensorFlowManager.runCNN(onFrame: pixelBuffer, completion: { (results, error) in
-                print(results ?? "oups")
+            tensorFlowManager.runCNN(onFrame: pixelBuffer, completion: {[weak self] (results, error) in
+                if let isFrozen = self?.isFrozen, !isFrozen {
+                    if let tmpResult = results?["trump"] as? Float {
+                        self?.prumtResult = Int(tmpResult * 100)
+                    } else {
+                        self?.prumtResult = 0
+                    }
+                    DispatchQueue.main.async {
+                        self?.updateResultLabel()
+                    }
+                }
             })
+        }
+    }
+    
+    func captureOutput(_ captureOutput: AVCaptureOutput!,
+                       didDrop sampleBuffer: CMSampleBuffer!,
+                       from connection: AVCaptureConnection!) {
+    }
+}
+
+extension CameraViewController: AdViewControllerDelegate {
+    func adViewDidReceiveAd() {
+        displayAd()
+    }
+    
+    fileprivate func displayAd(delay: Int = 10) {
+        UIView.animate(withDuration: 0.4,
+                       animations: {
+                        self.adViewTopConstraint.constant = 60
+                        self.view.layoutIfNeeded()
+        }) { (completed) in
+            let deadlineTime = DispatchTime.now() + .seconds(delay)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                UIView.animate(withDuration: 0.4,
+                               animations: {
+                                self.adViewTopConstraint.constant = -200
+                                self.view.layoutIfNeeded()
+                })
+            }
         }
     }
 }
