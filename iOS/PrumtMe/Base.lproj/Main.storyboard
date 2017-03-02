@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1362" y="-286"/>
         </scene>
-        <!--View Controller-->
+        <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PrumtMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="PrumtMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -41,7 +42,7 @@
                                 <rect key="frame" x="170" y="566" width="34" height="30"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <segue destination="Fx1-sO-a6y" kind="show" id="Q08-kx-3fE"/>
+                                    <action selector="startCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2TL-H3-Ijv"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOF-Fa-UXS">
@@ -62,6 +63,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EG4-n8-7vf"/>
+                    <connections>
+                        <segue destination="Fx1-sO-a6y" kind="show" identifier="startCamera" id="SN7-jy-MwD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,13 +80,13 @@
                         <viewControllerLayoutGuide type="bottom" id="C9h-ar-Zrj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jbe-Bt-tPk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                        <rect key="frame" x="0.0" y="0.0" width="272" height="449"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sLO-WA-Rfi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                                <rect key="frame" x="0.0" y="0.0" width="272" height="449"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Infor mation Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Infor mation Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -150,7 +154,7 @@
                                 <rect key="frame" x="333" y="28" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
                                 <connections>
-                                    <segue destination="3hQ-kt-2fe" kind="unwind" unwindAction="backToCameraWithSegue:" id="YUP-pR-DEG"/>
+                                    <segue destination="3hQ-kt-2fe" kind="unwind" unwindAction="backToCameraWithSegue:" id="nsU-wA-45Z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -222,10 +226,10 @@
             </objects>
             <point key="canvasLocation" x="724" y="-1065"/>
         </scene>
-        <!--Camera Example View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="xXE-Bo-a2Y">
             <objects>
-                <viewController id="Fx1-sO-a6y" customClass="CameraExampleViewController" sceneMemberID="viewController">
+                <viewController id="Fx1-sO-a6y" customClass="CameraViewController" customModule="PrumtMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z1F-oX-8Cd"/>
                         <viewControllerLayoutGuide type="bottom" id="LrR-bJ-gri"/>
@@ -234,30 +238,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehF-IW-kUq">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaT-iX-SNu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <connections>
-                                    <segue destination="whe-gQ-yvc" kind="embed" id="pQl-f3-76Q"/>
-                                </connections>
-                            </containerView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cx-Dd-AXV">
-                                <rect key="frame" x="17" y="601" width="30" height="30"/>
+                                <rect key="frame" x="16" y="617" width="30" height="30"/>
                                 <state key="normal" title="Info"/>
                                 <connections>
                                     <segue destination="6Qa-6Q-hKE" kind="presentation" id="jT6-J3-OSy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czF-3m-T9G">
+                                <rect key="frame" x="164" y="584" width="47" height="30"/>
+                                <state key="normal" title="Freeze"/>
+                                <connections>
+                                    <action selector="freezeImage:" destination="Fx1-sO-a6y" eventType="touchUpInside" id="2e3-gr-mFk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMA-11-Vzm">
+                                <rect key="frame" x="266" y="617" width="100" height="30"/>
+                                <state key="normal" title="switch camera"/>
+                                <connections>
+                                    <action selector="switchCamera:" destination="Fx1-sO-a6y" eventType="touchUpInside" id="tkA-TI-3vp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ehF-IW-kUq" secondAttribute="bottom" id="PKX-Je-D9z"/>
-                            <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="2cx-Dd-AXV" secondAttribute="bottom" constant="36" id="Pu7-Jk-8Bi"/>
-                            <constraint firstItem="2cx-Dd-AXV" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" constant="17" id="bMf-eJ-itI"/>
-                            <constraint firstItem="ehF-IW-kUq" firstAttribute="top" secondItem="Gbo-7x-aWt" secondAttribute="top" id="j6U-My-Y8c"/>
-                            <constraint firstItem="ehF-IW-kUq" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" id="ks9-8t-f5I"/>
-                            <constraint firstAttribute="trailing" secondItem="ehF-IW-kUq" secondAttribute="trailing" id="zrV-pL-jE9"/>
+                            <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="2cx-Dd-AXV" secondAttribute="bottom" constant="20" id="Pu7-Jk-8Bi"/>
+                            <constraint firstAttribute="trailing" secondItem="aaT-iX-SNu" secondAttribute="trailing" id="Ujd-cB-Kf5"/>
+                            <constraint firstItem="aaT-iX-SNu" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" id="VSn-sy-MaB"/>
+                            <constraint firstItem="czF-3m-T9G" firstAttribute="centerX" secondItem="Gbo-7x-aWt" secondAttribute="centerX" id="Vyh-Z9-1Bh"/>
+                            <constraint firstItem="aaT-iX-SNu" firstAttribute="top" secondItem="Gbo-7x-aWt" secondAttribute="top" id="aTL-dI-p3F"/>
+                            <constraint firstItem="2cx-Dd-AXV" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" constant="16" id="bMf-eJ-itI"/>
+                            <constraint firstAttribute="trailing" secondItem="BMA-11-Vzm" secondAttribute="trailing" constant="9" id="chf-uC-LZp"/>
+                            <constraint firstAttribute="bottom" secondItem="aaT-iX-SNu" secondAttribute="bottom" id="kEg-BQ-Gbf"/>
+                            <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="BMA-11-Vzm" secondAttribute="bottom" constant="20" id="s6i-5C-fuH"/>
+                            <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="czF-3m-T9G" secondAttribute="bottom" constant="53" id="wDA-nY-Szu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="freezeButton" destination="czF-3m-T9G" id="p4e-wE-5Up"/>
+                        <outlet property="infoButton" destination="2cx-Dd-AXV" id="qHi-wX-xdt"/>
+                        <outlet property="previewView" destination="aaT-iX-SNu" id="ysS-pg-wGt"/>
+                        <outlet property="switchCameraButton" destination="BMA-11-Vzm" id="hpp-zh-JOA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wja-bh-r7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,16 +301,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugp-Hf-Kif">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugp-Hf-Kif">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="621"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmV-4W-mBh">
-                                <rect key="frame" x="0.0" y="454" width="320" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sI-BX-Liq">
+                                <rect key="frame" x="30" y="603" width="315" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="c5i-5e-4rs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmV-4W-mBh">
+                                <rect key="frame" x="0.0" y="634" width="375" height="33"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="8ip-CF-SeF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                                 <state key="normal" title="Freeze Frame">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -296,18 +333,31 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8sI-BX-Liq" firstAttribute="leading" secondItem="Vkx-aQ-cQM" secondAttribute="leadingMargin" constant="14" id="8hD-UX-gbM"/>
+                            <constraint firstAttribute="bottom" secondItem="ugp-Hf-Kif" secondAttribute="bottom" constant="46" id="EIG-iZ-Kzx"/>
+                            <constraint firstItem="FmV-4W-mBh" firstAttribute="leading" secondItem="Vkx-aQ-cQM" secondAttribute="leading" id="LCe-Zq-1bq"/>
+                            <constraint firstItem="ugp-Hf-Kif" firstAttribute="top" secondItem="sjr-uA-VoJ" secondAttribute="bottom" id="Lrt-VF-i5H"/>
+                            <constraint firstAttribute="trailing" secondItem="ugp-Hf-Kif" secondAttribute="trailing" id="Nrt-N3-ddt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8sI-BX-Liq" secondAttribute="trailing" constant="14" id="RKi-YP-Ysn"/>
+                            <constraint firstItem="ugp-Hf-Kif" firstAttribute="leading" secondItem="Vkx-aQ-cQM" secondAttribute="leading" id="fNw-Rr-SvD"/>
+                            <constraint firstAttribute="trailing" secondItem="FmV-4W-mBh" secondAttribute="trailing" id="i1E-S0-JtW"/>
+                            <constraint firstItem="FmV-4W-mBh" firstAttribute="top" secondItem="8sI-BX-Liq" secondAttribute="bottom" constant="10" id="oHM-Eb-pEO"/>
+                            <constraint firstItem="Ujz-eB-4ax" firstAttribute="top" secondItem="FmV-4W-mBh" secondAttribute="bottom" id="vVu-zQ-4N1"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="labelResults" destination="8sI-BX-Liq" id="JSS-J4-aYW"/>
                         <outlet property="previewView" destination="ugp-Hf-Kif" id="tG3-MO-W17"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bV2-fA-qWS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714" y="-629"/>
+            <point key="canvasLocation" x="1712.8" y="-629.2353823088456"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fSz-kq-Dxd"/>
-        <segue reference="tyK-cb-GyK"/>
+        <segue reference="ZDw-oA-puX"/>
+        <segue reference="B57-92-aJR"/>
     </inferredMetricsTieBreakers>
 </document>

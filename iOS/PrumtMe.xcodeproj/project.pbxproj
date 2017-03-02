@@ -19,14 +19,14 @@
 		9A494A681E65C06C00CFFB44 /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A494A661E65C06C00CFFB44 /* libprotobuf-lite.a */; };
 		9A494A691E65C06C00CFFB44 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A494A671E65C06C00CFFB44 /* libprotobuf.a */; };
 		9A494A6B1E65C4BC00CFFB44 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A494A6A1E65C4BC00CFFB44 /* Accelerate.framework */; };
-		9A494A761E65C9B200CFFB44 /* grace_hopper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A494A721E65C9B200CFFB44 /* grace_hopper.jpg */; };
-		9A494A771E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A494A731E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt */; };
-		9A494A781E65C9B200CFFB44 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9A494A741E65C9B200CFFB44 /* LICENSE */; };
-		9A494A791E65C9B200CFFB44 /* tensorflow_inception_graph.pb in Resources */ = {isa = PBXBuildFile; fileRef = 9A494A751E65C9B200CFFB44 /* tensorflow_inception_graph.pb */; };
+		9A9C66021E66218D004D6E09 /* mmapped_graph.pb in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C66001E66218D004D6E09 /* mmapped_graph.pb */; };
+		9A9C66031E66218D004D6E09 /* output_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C66011E66218D004D6E09 /* output_labels.txt */; };
+		9A9C660C1E66F584004D6E09 /* TensorFlowManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C660B1E66F584004D6E09 /* TensorFlowManager.mm */; };
 		9ABA92021E5596D5001A515A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA92011E5596D5001A515A /* AppDelegate.swift */; };
 		9ABA92071E5596D5001A515A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA92051E5596D5001A515A /* Main.storyboard */; };
 		9ABA92091E5596D5001A515A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA92081E5596D5001A515A /* Assets.xcassets */; };
 		9ABA920C1E5596D5001A515A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA920A1E5596D5001A515A /* LaunchScreen.storyboard */; };
+		9ACC654B1E67141A00D477E7 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC654A1E67141A00D477E7 /* IntroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,16 +46,18 @@
 		9A494A661E65C06C00CFFB44 /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libprotobuf-lite.a"; path = "../../tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib/libprotobuf-lite.a"; sourceTree = "<group>"; };
 		9A494A671E65C06C00CFFB44 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = ../../tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib/libprotobuf.a; sourceTree = "<group>"; };
 		9A494A6A1E65C4BC00CFFB44 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		9A494A721E65C9B200CFFB44 /* grace_hopper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grace_hopper.jpg; sourceTree = "<group>"; };
-		9A494A731E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imagenet_comp_graph_label_strings.txt; sourceTree = "<group>"; };
-		9A494A741E65C9B200CFFB44 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		9A494A751E65C9B200CFFB44 /* tensorflow_inception_graph.pb */ = {isa = PBXFileReference; lastKnownFileType = file; path = tensorflow_inception_graph.pb; sourceTree = "<group>"; };
+		9A9C66001E66218D004D6E09 /* mmapped_graph.pb */ = {isa = PBXFileReference; lastKnownFileType = file; name = mmapped_graph.pb; path = ../../Tensorflow/Model/mmapped_graph.pb; sourceTree = "<group>"; };
+		9A9C66011E66218D004D6E09 /* output_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = output_labels.txt; path = ../../Tensorflow/Model/output_labels.txt; sourceTree = "<group>"; };
+		9A9C660A1E66F584004D6E09 /* TensorFlowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TensorFlowManager.h; sourceTree = "<group>"; };
+		9A9C660B1E66F584004D6E09 /* TensorFlowManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TensorFlowManager.mm; sourceTree = "<group>"; };
 		9ABA91FE1E5596D5001A515A /* PrumtMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrumtMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABA92011E5596D5001A515A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ABA92061E5596D5001A515A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9ABA92081E5596D5001A515A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ABA920B1E5596D5001A515A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9ABA920D1E5596D5001A515A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ACC654A1E67141A00D477E7 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = ViewControllers/IntroViewController.swift; sourceTree = "<group>"; };
+		9ACC654C1E6718FE00D477E7 /* PrumtMeBridginig_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrumtMeBridginig_Header.h; sourceTree = "<group>"; };
 		A5F47BBF417DB5B4FEFB7952 /* Pods-PrumtMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrumtMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrumtMe/Pods-PrumtMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				9A494A541E658C2400CFFB44 /* InfoViewController.swift */,
 				9A494A561E658EFB00CFFB44 /* CameraViewController.swift */,
 				9A494A581E658FBD00CFFB44 /* AdViewController.swift */,
+				9ACC654A1E67141A00D477E7 /* IntroViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -113,19 +116,10 @@
 				9A494A5E1E65BF2900CFFB44 /* ios_image_load.mm */,
 				9A494A5F1E65BF2900CFFB44 /* tensorflow_utils.h */,
 				9A494A601E65BF2900CFFB44 /* tensorflow_utils.mm */,
+				9A9C660A1E66F584004D6E09 /* TensorFlowManager.h */,
+				9A9C660B1E66F584004D6E09 /* TensorFlowManager.mm */,
 			);
 			path = Tensorflow;
-			sourceTree = "<group>";
-		};
-		9A494A711E65C9B200CFFB44 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				9A494A721E65C9B200CFFB44 /* grace_hopper.jpg */,
-				9A494A731E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt */,
-				9A494A741E65C9B200CFFB44 /* LICENSE */,
-				9A494A751E65C9B200CFFB44 /* tensorflow_inception_graph.pb */,
-			);
-			path = data;
 			sourceTree = "<group>";
 		};
 		9ABA91F51E5596D5001A515A = {
@@ -152,7 +146,8 @@
 		9ABA92001E5596D5001A515A /* PrumtMe */ = {
 			isa = PBXGroup;
 			children = (
-				9A494A711E65C9B200CFFB44 /* data */,
+				9A9C66001E66218D004D6E09 /* mmapped_graph.pb */,
+				9A9C66011E66218D004D6E09 /* output_labels.txt */,
 				9A494A5A1E65BF2900CFFB44 /* Tensorflow */,
 				9A494A511E658AA900CFFB44 /* ViewControllers */,
 				9ABA92011E5596D5001A515A /* AppDelegate.swift */,
@@ -160,6 +155,7 @@
 				9ABA92081E5596D5001A515A /* Assets.xcassets */,
 				9ABA920A1E5596D5001A515A /* LaunchScreen.storyboard */,
 				9ABA920D1E5596D5001A515A /* Info.plist */,
+				9ACC654C1E6718FE00D477E7 /* PrumtMeBridginig_Header.h */,
 			);
 			path = PrumtMe;
 			sourceTree = "<group>";
@@ -227,12 +223,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A494A761E65C9B200CFFB44 /* grace_hopper.jpg in Resources */,
-				9A494A771E65C9B200CFFB44 /* imagenet_comp_graph_label_strings.txt in Resources */,
-				9A494A781E65C9B200CFFB44 /* LICENSE in Resources */,
 				9ABA920C1E5596D5001A515A /* LaunchScreen.storyboard in Resources */,
+				9A9C66031E66218D004D6E09 /* output_labels.txt in Resources */,
+				9A9C66021E66218D004D6E09 /* mmapped_graph.pb in Resources */,
 				9ABA92091E5596D5001A515A /* Assets.xcassets in Resources */,
-				9A494A791E65C9B200CFFB44 /* tensorflow_inception_graph.pb in Resources */,
 				9ABA92071E5596D5001A515A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +291,8 @@
 				9A494A531E658AE600CFFB44 /* ShareViewController.swift in Sources */,
 				9A494A591E658FBD00CFFB44 /* AdViewController.swift in Sources */,
 				9A494A571E658EFB00CFFB44 /* CameraViewController.swift in Sources */,
+				9ACC654B1E67141A00D477E7 /* IntroViewController.swift in Sources */,
+				9A9C660C1E66F584004D6E09 /* TensorFlowManager.mm in Sources */,
 				9A494A551E658C2400CFFB44 /* InfoViewController.swift in Sources */,
 				9A494A631E65BF2900CFFB44 /* tensorflow_utils.mm in Sources */,
 				9ABA92021E5596D5001A515A /* AppDelegate.swift in Sources */,
@@ -443,6 +439,7 @@
 					"$(SRCROOT)/../../tensorflow",
 				);
 				INFOPLIST_FILE = PrumtMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					/Users/fauquettefred/tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib,
@@ -509,8 +506,9 @@
 					"-force_load",
 					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/gen/lib/libtensorflow-core.a",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fredfoc.PrumtMe;
+				PRODUCT_BUNDLE_IDENTIFIER = me.prumt.PrumtMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/PrumtMe/PrumtMeBridginig_Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -542,6 +540,7 @@
 					"$(SRCROOT)/../../tensorflow",
 				);
 				INFOPLIST_FILE = PrumtMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					/Users/fauquettefred/tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib,
@@ -608,8 +607,9 @@
 					"-force_load",
 					"$(SRCROOT)/../../tensorflow/tensorflow/contrib/makefile/gen/lib/libtensorflow-core.a",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fredfoc.PrumtMe;
+				PRODUCT_BUNDLE_IDENTIFIER = me.prumt.PrumtMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/PrumtMe/PrumtMeBridginig_Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
