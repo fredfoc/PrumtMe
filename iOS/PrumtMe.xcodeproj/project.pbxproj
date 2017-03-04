@@ -10,7 +10,6 @@
 		5B516813389B5FB066CA48E3 /* Pods_PrumtMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE4D477E1059D88DDCE26FB /* Pods_PrumtMe.framework */; };
 		9A494A571E658EFB00CFFB44 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A561E658EFB00CFFB44 /* CameraViewController.swift */; };
 		9A494A591E658FBD00CFFB44 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A581E658FBD00CFFB44 /* AdViewController.swift */; };
-		9A494A611E65BF2900CFFB44 /* CameraExampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A5C1E65BF2900CFFB44 /* CameraExampleViewController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9A494A621E65BF2900CFFB44 /* ios_image_load.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A5E1E65BF2900CFFB44 /* ios_image_load.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9A494A631E65BF2900CFFB44 /* tensorflow_utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A494A601E65BF2900CFFB44 /* tensorflow_utils.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9A494A651E65C03D00CFFB44 /* libtensorflow-core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A494A641E65C03D00CFFB44 /* libtensorflow-core.a */; };
@@ -25,6 +24,7 @@
 		9ABA92091E5596D5001A515A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA92081E5596D5001A515A /* Assets.xcassets */; };
 		9ABA920C1E5596D5001A515A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA920A1E5596D5001A515A /* LaunchScreen.storyboard */; };
 		9ACC654B1E67141A00D477E7 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC654A1E67141A00D477E7 /* IntroViewController.swift */; };
+		9ACC654E1E68ECE500D477E7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC654D1E68ECE500D477E7 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,6 @@
 		6EE4D477E1059D88DDCE26FB /* Pods_PrumtMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrumtMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A494A561E658EFB00CFFB44 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ViewControllers/CameraViewController.swift; sourceTree = "<group>"; };
 		9A494A581E658FBD00CFFB44 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdViewController.swift; path = ViewControllers/AdViewController.swift; sourceTree = "<group>"; };
-		9A494A5B1E65BF2900CFFB44 /* CameraExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraExampleViewController.h; sourceTree = "<group>"; };
-		9A494A5C1E65BF2900CFFB44 /* CameraExampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraExampleViewController.mm; sourceTree = "<group>"; };
 		9A494A5D1E65BF2900CFFB44 /* ios_image_load.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_image_load.h; sourceTree = "<group>"; };
 		9A494A5E1E65BF2900CFFB44 /* ios_image_load.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_image_load.mm; sourceTree = "<group>"; };
 		9A494A5F1E65BF2900CFFB44 /* tensorflow_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tensorflow_utils.h; sourceTree = "<group>"; };
@@ -54,6 +52,7 @@
 		9ABA920D1E5596D5001A515A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9ACC654A1E67141A00D477E7 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = ViewControllers/IntroViewController.swift; sourceTree = "<group>"; };
 		9ACC654C1E6718FE00D477E7 /* PrumtMeBridginig_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrumtMeBridginig_Header.h; sourceTree = "<group>"; };
+		9ACC654D1E68ECE500D477E7 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = ViewControllers/InfoViewController.swift; sourceTree = "<group>"; };
 		A5F47BBF417DB5B4FEFB7952 /* Pods-PrumtMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrumtMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrumtMe/Pods-PrumtMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +96,7 @@
 				9A494A561E658EFB00CFFB44 /* CameraViewController.swift */,
 				9A494A581E658FBD00CFFB44 /* AdViewController.swift */,
 				9ACC654A1E67141A00D477E7 /* IntroViewController.swift */,
+				9ACC654D1E68ECE500D477E7 /* InfoViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -104,8 +104,6 @@
 		9A494A5A1E65BF2900CFFB44 /* Tensorflow */ = {
 			isa = PBXGroup;
 			children = (
-				9A494A5B1E65BF2900CFFB44 /* CameraExampleViewController.h */,
-				9A494A5C1E65BF2900CFFB44 /* CameraExampleViewController.mm */,
 				9A494A5D1E65BF2900CFFB44 /* ios_image_load.h */,
 				9A494A5E1E65BF2900CFFB44 /* ios_image_load.mm */,
 				9A494A5F1E65BF2900CFFB44 /* tensorflow_utils.h */,
@@ -281,9 +279,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A494A621E65BF2900CFFB44 /* ios_image_load.mm in Sources */,
-				9A494A611E65BF2900CFFB44 /* CameraExampleViewController.mm in Sources */,
 				9A494A591E658FBD00CFFB44 /* AdViewController.swift in Sources */,
 				9A494A571E658EFB00CFFB44 /* CameraViewController.swift in Sources */,
+				9ACC654E1E68ECE500D477E7 /* InfoViewController.swift in Sources */,
 				9ACC654B1E67141A00D477E7 /* IntroViewController.swift in Sources */,
 				9A9C660C1E66F584004D6E09 /* TensorFlowManager.mm in Sources */,
 				9A494A631E65BF2900CFFB44 /* tensorflow_utils.mm in Sources */,

@@ -17,11 +17,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Capture images to detect object</string>
+	<string>Capture images to detect how much of him is in the picture...</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Just to interact whit captured image.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Just to save captured images.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

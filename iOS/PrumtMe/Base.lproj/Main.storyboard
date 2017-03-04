@@ -44,20 +44,6 @@
                                     <constraint firstAttribute="height" constant="677" id="DQx-TF-fHK"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYb-gp-5EB">
-                                <rect key="frame" x="46" y="106" width="283" height="366"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">PrumtMe comes from a stupid experiment I was doing when building a presentation on Machine Learning.
-
-I wanted to train a model to compare the face of a friend with the face of « you know who ».
-
-During the presentation, everyone was laughing and wanted to know how much of « you know who » was in them.
-
-That was it : PrumtMe was born.</string>
-                                <color key="textColor" red="0.48246" green="0.44418000000000002" blue="0.42025000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJG-Dv-2NF">
                                 <rect key="frame" x="130" y="479" width="114" height="117"/>
                                 <constraints>
@@ -69,14 +55,60 @@ That was it : PrumtMe was born.</string>
                                     <action selector="startCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2TL-H3-Ijv"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPd-Sl-3OP">
+                                <rect key="frame" x="30" y="50" width="315" height="409"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kPD-Em-Iva">
+                                        <rect key="frame" x="0.0" y="111" width="315" height="191"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <string key="text">PrumtMe comes from a stupid experiment I did for a presentation on Machine Learning.
+
+I wanted to train a model to compare the face of a friend with the face of a recently elected « you know who ».
+
+During the presentation, everyone was laughing and wanted to know how much of « you know who » was in them.</string>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="16"/>
+                                        <color key="textColor" red="0.4823529412" green="0.4431372549" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrumtMe was born." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sk-gp-7cS">
+                                        <rect key="frame" x="83" y="332" width="149" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="1mX-6c-wHz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.4823529412" green="0.4431372549" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the face above to start..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPl-pT-7eU">
+                                        <rect key="frame" x="49.5" y="383" width="216" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Mrb-XG-lNz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                        <color key="textColor" red="0.4823529412" green="0.4431372549" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kPD-Em-Iva" secondAttribute="trailing" id="4zf-Hw-Udf"/>
+                                    <constraint firstItem="WPl-pT-7eU" firstAttribute="centerX" secondItem="cPd-Sl-3OP" secondAttribute="centerX" id="7kA-0a-82v"/>
+                                    <constraint firstItem="kPD-Em-Iva" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cPd-Sl-3OP" secondAttribute="top" id="8gS-ak-VhQ"/>
+                                    <constraint firstItem="WPl-pT-7eU" firstAttribute="top" secondItem="0sk-gp-7cS" secondAttribute="bottom" constant="30" id="HMX-qd-gcQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="WPl-pT-7eU" secondAttribute="bottom" constant="5" id="XDZ-YD-GRD"/>
+                                    <constraint firstItem="kPD-Em-Iva" firstAttribute="leading" secondItem="cPd-Sl-3OP" secondAttribute="leading" id="bzl-bS-RAr"/>
+                                    <constraint firstItem="0sk-gp-7cS" firstAttribute="centerX" secondItem="cPd-Sl-3OP" secondAttribute="centerX" id="fNE-pJ-pb8"/>
+                                    <constraint firstItem="0sk-gp-7cS" firstAttribute="top" secondItem="kPD-Em-Iva" secondAttribute="bottom" constant="30" id="uxl-HM-udv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bJG-Dv-2NF" secondAttribute="bottom" constant="71" id="1wZ-gi-s1f"/>
-                            <constraint firstItem="gYb-gp-5EB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="46" id="C2q-hW-pMb"/>
-                            <constraint firstAttribute="trailing" secondItem="gYb-gp-5EB" secondAttribute="trailing" constant="46" id="Eo3-zY-aNj"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gYb-gp-5EB" secondAttribute="bottom" constant="195" id="MhA-qJ-IAt"/>
-                            <constraint firstItem="gYb-gp-5EB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="XGv-Gp-LcR"/>
+                            <constraint firstItem="bJG-Dv-2NF" firstAttribute="top" secondItem="cPd-Sl-3OP" secondAttribute="bottom" constant="20" id="Sv8-YD-9BW"/>
+                            <constraint firstAttribute="trailing" secondItem="cPd-Sl-3OP" secondAttribute="trailing" constant="30" id="Ti9-6o-UA0"/>
+                            <constraint firstItem="cPd-Sl-3OP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="Tm9-Pj-PS2"/>
+                            <constraint firstItem="cPd-Sl-3OP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="WtG-Hx-7Jz"/>
                             <constraint firstItem="bJG-Dv-2NF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gHN-CR-Nmr"/>
                             <constraint firstItem="eCk-pd-sLs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sRE-k3-Udb"/>
                             <constraint firstItem="eCk-pd-sLs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="v0q-SB-cx7"/>
@@ -85,7 +117,7 @@ That was it : PrumtMe was born.</string>
                     <navigationItem key="navigationItem" id="EG4-n8-7vf"/>
                     <connections>
                         <outlet property="bottomStartConstraint" destination="1wZ-gi-s1f" id="nC6-3c-wbX"/>
-                        <outlet property="descriptionTextField" destination="gYb-gp-5EB" id="i9A-ZM-lMh"/>
+                        <outlet property="descriptionView" destination="cPd-Sl-3OP" id="fao-ha-zxt"/>
                         <outlet property="startButton" destination="bJG-Dv-2NF" id="6qP-CN-4UI"/>
                         <segue destination="Fx1-sO-a6y" kind="show" identifier="startCamera" id="SN7-jy-MwD"/>
                     </connections>
@@ -143,7 +175,7 @@ That was it : PrumtMe was born.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FG8-y7-U3C">
-                                <rect key="frame" x="104" y="459" width="167" height="32"/>
+                                <rect key="frame" x="104" y="511.5" width="167" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="167" id="Qof-SH-rCL"/>
                                     <constraint firstAttribute="height" constant="32" id="eB6-WT-cXd"/>
@@ -152,31 +184,37 @@ That was it : PrumtMe was born.</string>
                                 <state key="normal" title="Prumt.me" backgroundImage="backgroundText">
                                     <color key="titleColor" red="0.8784313725490196" green="0.89803921568627454" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="prumtMeWebsite:" destination="6Qa-6Q-hKE" eventType="touchUpInside" id="9Pw-1b-GBk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnl-v4-3wj">
-                                <rect key="frame" x="162" y="516" width="50" height="50"/>
+                                <rect key="frame" x="162" y="568.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Shc-wE-e0h"/>
                                     <constraint firstAttribute="height" constant="50" id="g5S-G6-HUD"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="shareButton"/>
+                                <connections>
+                                    <action selector="sharePrumtMe:" destination="6Qa-6Q-hKE" eventType="touchUpInside" id="sBg-da-RrS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob7-pf-Fa1">
-                                <rect key="frame" x="30" y="586" width="315" height="66"/>
-                                <string key="text">I want to thank you my family, Alice, Merlin, Thelma, Simon, Mum, Dad, Thomas, François, Matthias, Mikaïl, Borja, Benjamin, Kevin, Jérôme and many more I’m missing who gave me inspiration, skills and many more things I cannot describe here. Thank you guys :-)</string>
+                                <rect key="frame" x="30" y="638.5" width="315" height="13.5"/>
+                                <string key="text">I want to thank my family, Alice, Merlin, Thelma, Simon, Mum, Dad, Thomas, François, Matthias, Mikaïl, Borja, Benjamin, Kevin, Jérôme and many more I’m missing who gave me inspiration, skills and many more things I cannot describe here. Thank you guys :-)</string>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="11"/>
                                 <color key="textColor" red="0.4823529412" green="0.4431372549" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9W9-Rj-AKa">
-                                <rect key="frame" x="30" y="88" width="315" height="351"/>
-                                <mutableString key="text">PrumtMe comes from a stupid experiment I was doing when building a presentation on Machine Learning. I wanted to train a model to compare the face of a friend with the face of « you know who ».
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="9W9-Rj-AKa">
+                                <rect key="frame" x="30" y="88" width="315" height="403.5"/>
+                                <string key="text">PrumtMe comes from a stupid experiment I made when building a presentation on Machine Learning. I wanted to train a model to compare the face of a friend with the face of « you know who ».
 During the presentation, everyone was laughing and wanted to know how much of « you know who » was in them. That was it : PrumtMe was born.
 
 PrumtMe is opensource (all the project is available via the website), except the design and the images used to train the model.
 
 It’s using:
-www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.producthunt.com (for inspiration and sharing), www.swisscolors.net (for colors), www.madesomewhere.com.au (for the logo) and many more.</mutableString>
+www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.producthunt.com (for inspiration and sharing), www.swisscolors.net (for colors), www.madesomewhere.com.au (for the logo) and many more.</string>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
                                 <color key="textColor" red="0.4823529412" green="0.4431372549" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -193,6 +231,7 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                             <constraint firstAttribute="trailing" secondItem="Ob7-pf-Fa1" secondAttribute="trailing" constant="30" id="aSp-K8-Ng4"/>
                             <constraint firstItem="9W9-Rj-AKa" firstAttribute="leading" secondItem="kMr-zl-gwg" secondAttribute="leading" constant="30" id="bD6-s1-i0K"/>
                             <constraint firstItem="P62-oZ-rjQ" firstAttribute="centerY" secondItem="kMr-zl-gwg" secondAttribute="centerY" id="htZ-W8-kcs"/>
+                            <constraint firstAttribute="bottom" secondItem="Ob7-pf-Fa1" secondAttribute="bottom" constant="15" id="nmv-RU-FJZ"/>
                             <constraint firstItem="fnl-v4-3wj" firstAttribute="top" secondItem="FG8-y7-U3C" secondAttribute="bottom" constant="25" id="nqr-no-Ihy"/>
                             <constraint firstItem="9W9-Rj-AKa" firstAttribute="top" secondItem="ffs-Uv-7Fj" secondAttribute="bottom" constant="8" id="vRm-Ek-FTg"/>
                             <constraint firstItem="FG8-y7-U3C" firstAttribute="centerX" secondItem="kMr-zl-gwg" secondAttribute="centerX" id="vf3-v0-imw"/>
@@ -236,34 +275,58 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prumtButton" translatesAutoresizingMaskIntoConstraints="NO" id="4tD-kX-wjh">
-                                        <rect key="frame" x="130" y="490" width="114" height="117"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGR-IT-Isx">
+                                        <rect key="frame" x="112" y="481" width="150" height="150"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prumtButton" translatesAutoresizingMaskIntoConstraints="NO" id="4tD-kX-wjh">
+                                                <rect key="frame" x="20" y="11.5" width="114" height="117"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="114" id="Scb-zQ-QeI"/>
+                                                    <constraint firstAttribute="height" constant="117" id="m62-BG-JFs"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="114" id="Scb-zQ-QeI"/>
-                                            <constraint firstAttribute="height" constant="117" id="m62-BG-JFs"/>
+                                            <constraint firstAttribute="height" constant="150" id="JA7-Ho-ajg"/>
+                                            <constraint firstAttribute="width" constant="150" id="Rha-3d-ydS"/>
+                                            <constraint firstItem="4tD-kX-wjh" firstAttribute="centerX" secondItem="XGR-IT-Isx" secondAttribute="centerX" constant="2" id="WVy-VA-Epo"/>
+                                            <constraint firstItem="4tD-kX-wjh" firstAttribute="centerY" secondItem="XGR-IT-Isx" secondAttribute="centerY" constant="-5" id="XCH-Yv-aKl"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLs-KR-bWL">
-                                        <rect key="frame" x="159" y="532" width="46.5" height="43"/>
+                                        <rect key="frame" x="164" y="534" width="47" height="43"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <color key="textColor" red="0.8784313725490196" green="0.89803921568627454" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czF-3m-T9G">
+                                        <rect key="frame" x="130" y="497" width="114" height="117"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="114" id="R10-UP-eaE"/>
+                                            <constraint firstAttribute="height" constant="117" id="c47-9c-Heh"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="toggleVideo" destination="Fx1-sO-a6y" eventType="touchUpInside" id="BGa-gl-0xd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="FLs-KR-bWL" firstAttribute="centerX" secondItem="czF-3m-T9G" secondAttribute="centerX" id="3T9-uD-Etp"/>
+                                    <constraint firstItem="FLs-KR-bWL" firstAttribute="centerX" secondItem="XGR-IT-Isx" secondAttribute="centerX" id="4NK-yF-Lvh"/>
                                     <constraint firstItem="mUO-br-1IM" firstAttribute="top" secondItem="a3U-Ge-LEj" secondAttribute="top" id="8SY-TY-FVY"/>
                                     <constraint firstAttribute="bottom" secondItem="mUO-br-1IM" secondAttribute="bottom" id="FWR-Jn-v6L"/>
-                                    <constraint firstAttribute="bottom" secondItem="4tD-kX-wjh" secondAttribute="bottom" constant="60" id="IvD-E8-9wz"/>
+                                    <constraint firstItem="FLs-KR-bWL" firstAttribute="centerY" secondItem="czF-3m-T9G" secondAttribute="centerY" id="GgY-Lu-fcP"/>
                                     <constraint firstItem="mUO-br-1IM" firstAttribute="leading" secondItem="a3U-Ge-LEj" secondAttribute="leading" id="MKx-R1-PMQ"/>
-                                    <constraint firstItem="4tD-kX-wjh" firstAttribute="centerY" secondItem="FLs-KR-bWL" secondAttribute="centerY" constant="-5" id="bnI-Lx-flo"/>
+                                    <constraint firstItem="FLs-KR-bWL" firstAttribute="centerY" secondItem="XGR-IT-Isx" secondAttribute="centerY" id="WL1-ee-RMS"/>
                                     <constraint firstAttribute="trailing" secondItem="aaT-iX-SNu" secondAttribute="trailing" id="cAl-gy-LDS"/>
+                                    <constraint firstItem="FLs-KR-bWL" firstAttribute="centerX" secondItem="a3U-Ge-LEj" secondAttribute="centerX" id="cCf-xp-5Qv"/>
                                     <constraint firstAttribute="bottom" secondItem="aaT-iX-SNu" secondAttribute="bottom" id="fob-cM-CTO"/>
+                                    <constraint firstAttribute="bottom" secondItem="XGR-IT-Isx" secondAttribute="bottom" constant="36" id="ggr-wW-yIe"/>
                                     <constraint firstItem="aaT-iX-SNu" firstAttribute="leading" secondItem="a3U-Ge-LEj" secondAttribute="leading" id="l55-2J-PAX"/>
-                                    <constraint firstItem="4tD-kX-wjh" firstAttribute="centerX" secondItem="FLs-KR-bWL" secondAttribute="centerX" constant="5" id="qi7-Uh-ATO"/>
                                     <constraint firstItem="aaT-iX-SNu" firstAttribute="top" secondItem="a3U-Ge-LEj" secondAttribute="top" id="tbN-mt-xG5"/>
-                                    <constraint firstItem="4tD-kX-wjh" firstAttribute="centerX" secondItem="a3U-Ge-LEj" secondAttribute="centerX" id="tga-Pp-ZuN"/>
                                     <constraint firstAttribute="trailing" secondItem="mUO-br-1IM" secondAttribute="trailing" id="uab-CJ-eIX"/>
                                 </constraints>
                             </view>
@@ -278,18 +341,8 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                                     <segue destination="6Qa-6Q-hKE" kind="presentation" id="jT6-J3-OSy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czF-3m-T9G">
-                                <rect key="frame" x="130.5" y="490" width="114" height="117"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="R10-UP-eaE"/>
-                                    <constraint firstAttribute="height" constant="117" id="c47-9c-Heh"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="toggleVideo" destination="Fx1-sO-a6y" eventType="touchUpInside" id="BGa-gl-0xd"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idw-OM-Nkv">
-                                <rect key="frame" x="309" y="537" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="601" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Loc-P9-7CV"/>
                                     <constraint firstAttribute="height" constant="50" id="NTU-ah-uFp"/>
@@ -323,32 +376,28 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                             <constraint firstItem="QC2-zo-vdr" firstAttribute="centerY" secondItem="Gbo-7x-aWt" secondAttribute="centerY" id="Klv-NA-sRQ"/>
                             <constraint firstItem="a3U-Ge-LEj" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" id="MC2-Zh-NJ0"/>
                             <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="2cx-Dd-AXV" secondAttribute="bottom" constant="16" id="Pu7-Jk-8Bi"/>
-                            <constraint firstAttribute="trailing" secondItem="Idw-OM-Nkv" secondAttribute="trailing" constant="16" id="QBx-j6-k88"/>
                             <constraint firstItem="a0I-A7-850" firstAttribute="top" secondItem="Gbo-7x-aWt" secondAttribute="top" constant="40" id="Vlh-OG-mq8"/>
-                            <constraint firstItem="czF-3m-T9G" firstAttribute="centerX" secondItem="Gbo-7x-aWt" secondAttribute="centerX" id="Vyh-Z9-1Bh"/>
                             <constraint firstAttribute="bottom" secondItem="a3U-Ge-LEj" secondAttribute="bottom" id="Zkr-yV-f1x"/>
                             <constraint firstItem="2cx-Dd-AXV" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" constant="16" id="bMf-eJ-itI"/>
                             <constraint firstAttribute="trailing" secondItem="BMA-11-Vzm" secondAttribute="trailing" constant="16" id="chf-uC-LZp"/>
                             <constraint firstItem="a3U-Ge-LEj" firstAttribute="top" secondItem="Gbo-7x-aWt" secondAttribute="top" id="g1K-W3-3CB"/>
                             <constraint firstAttribute="trailing" secondItem="a3U-Ge-LEj" secondAttribute="trailing" id="guh-Hi-6JG"/>
-                            <constraint firstAttribute="bottom" secondItem="Idw-OM-Nkv" secondAttribute="bottom" constant="80" id="kwo-Vo-NUi"/>
+                            <constraint firstAttribute="bottom" secondItem="Idw-OM-Nkv" secondAttribute="bottom" constant="16" id="kwo-Vo-NUi"/>
                             <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="BMA-11-Vzm" secondAttribute="bottom" constant="16" id="s6i-5C-fuH"/>
                             <constraint firstItem="QC2-zo-vdr" firstAttribute="centerX" secondItem="Gbo-7x-aWt" secondAttribute="centerX" id="sTw-Pv-7rM"/>
-                            <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="czF-3m-T9G" secondAttribute="bottom" constant="60" id="wDA-nY-Szu"/>
+                            <constraint firstItem="Idw-OM-Nkv" firstAttribute="centerX" secondItem="Gbo-7x-aWt" secondAttribute="centerX" id="z6E-NC-2mF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="adViewTopConstraint" destination="Vlh-OG-mq8" id="Rh3-j9-2ef"/>
+                        <outlet property="bottomInfoConstraint" destination="Pu7-Jk-8Bi" id="F2k-Wh-xUQ"/>
+                        <outlet property="bottomPrumtMeView" destination="ggr-wW-yIe" id="1xA-5A-Yeb"/>
                         <outlet property="bottomShareConstraint" destination="kwo-Vo-NUi" id="rk8-RA-s7P"/>
                         <outlet property="bottomSwitchCameraConstraint" destination="s6i-5C-fuH" id="jxb-Py-eey"/>
-                        <outlet property="freezeButton" destination="czF-3m-T9G" id="p4e-wE-5Up"/>
-                        <outlet property="infoButton" destination="2cx-Dd-AXV" id="qHi-wX-xdt"/>
                         <outlet property="previewImage" destination="mUO-br-1IM" id="cp9-Z0-i4A"/>
                         <outlet property="previewView" destination="aaT-iX-SNu" id="ysS-pg-wGt"/>
                         <outlet property="prumtValueLabel" destination="FLs-KR-bWL" id="Z82-Sh-7Po"/>
                         <outlet property="screenedView" destination="a3U-Ge-LEj" id="KrJ-Af-3nx"/>
-                        <outlet property="shareButton" destination="Idw-OM-Nkv" id="yi9-9C-h1v"/>
-                        <outlet property="switchCameraButton" destination="BMA-11-Vzm" id="hpp-zh-JOA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wja-bh-r7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -358,11 +407,11 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
     </scenes>
     <resources>
         <image name="background" width="375" height="667"/>
-        <image name="backgroundText" width="31" height="32"/>
+        <image name="backgroundText" width="168" height="32"/>
         <image name="cameraButton" width="50" height="50"/>
         <image name="closeButton" width="50" height="50"/>
         <image name="infoButton" width="29" height="30"/>
-        <image name="prumtButton" width="114" height="117"/>
+        <image name="prumtButton" width="101" height="104"/>
         <image name="shareButton" width="50" height="50"/>
     </resources>
 </document>

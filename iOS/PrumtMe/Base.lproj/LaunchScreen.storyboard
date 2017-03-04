@@ -52,6 +52,6 @@
     </scenes>
     <resources>
         <image name="background" width="375" height="667"/>
-        <image name="prumtButton" width="114" height="117"/>
+        <image name="prumtButton" width="101" height="104"/>
     </resources>
 </document>

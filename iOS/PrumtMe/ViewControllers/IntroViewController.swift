@@ -12,26 +12,38 @@ import AVFoundation
 
 class IntroViewController: UIViewController {
     
-    @IBOutlet weak var descriptionTextField: UITextView!
+    @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var bottomStartConstraint: NSLayoutConstraint!
-    @IBAction func startCamera(_ sender: Any) {
-        askPermission()
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionTextField.alpha = 0
+        descriptionView.alpha = 0
         bottomStartConstraint.constant = (view.frame.height - startButton.frame.width) / 2
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animate(withDuration: 0.7) { 
-            self.descriptionTextField.alpha = 1
+        UIView.animate(withDuration: 0.6,
+                       delay: 0,
+                       options: .curveEaseInOut,
+                       animations: {
             self.bottomStartConstraint.constant = bottomConstantPrumtButton
             self.view.layoutIfNeeded()
+        })
+        
+        let deadlineTime = DispatchTime.now() + .milliseconds(700)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            UIView.animate(withDuration: 0.3) {
+                self.descriptionView.alpha = 1
+                self.view.layoutIfNeeded()
+            }
         }
+    }
+    
+    @IBAction func startCamera(_ sender: Any) {
+        askPermission()
     }
     
     private func startCamera() {
@@ -50,8 +62,22 @@ class IntroViewController: UIViewController {
             
         })
     }
+    private func displayAlertForCameraPermission() {
+        let alert = UIAlertController(title: "Oops...:-)" , message:  "Camera is the main feature of this application. This app is not really smart but without camera permission it's completely useless... Do you want to go to settings to change permission ?", preferredStyle: .alert)
+        let goToSettingsAction = UIAlertAction(title: "Yes", style: .default, handler: { (_) in
+            guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl)
+            }
+        })
+        alert.addAction(goToSettingsAction)
+        let action = UIAlertAction(title: "Noop", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
     
-    // This method you can use somewhere you need to know camera permission   state
     private func askPermission() {
         print("here")
         let cameraPermissionStatus =  AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
@@ -60,29 +86,18 @@ class IntroViewController: UIViewController {
         case .authorized:
             startCamera()
         case .denied:
-            let alert = UIAlertController(title: "Sorry :(" , message: "But  could you please grant permission for camera within device settings",  preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .cancel,  handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
-            
+            displayAlertForCameraPermission()
         case .restricted:
-            print("restricted")
+            displayAlertForCameraPermission()
         default:
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: {
-                [weak self]
-                (granted :Bool) -> Void in
-                
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: {[weak self] (granted :Bool) -> Void in
                 if granted == true {
                     DispatchQueue.main.async(){
                         self?.startCamera()
                     }
-                }
-                else {
+                } else {
                     DispatchQueue.main.async(){
-                        let alert = UIAlertController(title: "WHY?" , message:  "Camera it is the main feature of our application", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                        alert.addAction(action)
-                        self?.present(alert, animated: true, completion: nil)  
+                        self?.displayAlertForCameraPermission()
                     } 
                 }
             });

@@ -11,8 +11,9 @@ import AVFoundation
 import MBProgressHUD
 
 let prumtMeErrorTitle = "PrumtMe OOPS..."
+let prumtNodeName = "prumt"
 let bottomConstantButton: CGFloat = 16
-let outConstantButton: CGFloat = -200
+let outConstantButton: CGFloat = -100
 let bottomConstantPrumtButton: CGFloat = 60
 
 
@@ -26,12 +27,12 @@ class CameraViewController: UIViewController {
     fileprivate var isFrozen = false
     fileprivate var isUsingBackCamera = true
     
-    fileprivate var prumtResult: Int = 0
+    fileprivate var prumtResults = [Int]()
     
-    @IBOutlet fileprivate weak var freezeButton: UIButton!
-    @IBOutlet fileprivate weak var infoButton: UIButton!
-    @IBOutlet fileprivate weak var switchCameraButton: UIButton!
-    @IBOutlet fileprivate weak var shareButton: UIButton!
+    fileprivate var prumtResult: Int {
+        return prumtResults.isEmpty ? 0 : prumtResults.reduce(0, +) / prumtResults.count
+    }
+    
     @IBOutlet fileprivate weak var previewView: UIView!
     @IBOutlet fileprivate weak var previewImage: UIImageView!
     @IBOutlet fileprivate weak var prumtValueLabel: UILabel!
@@ -39,16 +40,19 @@ class CameraViewController: UIViewController {
     
     
     
-    
+    @IBOutlet weak var bottomInfoConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var adViewTopConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var bottomSwitchCameraConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var bottomShareConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomPrumtMeView: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setAVSession()
         adViewTopConstraint.constant = outConstantButton
         bottomSwitchCameraConstraint.constant = bottomConstantButton
+        bottomInfoConstraint.constant = bottomConstantButton
         bottomShareConstraint.constant = outConstantButton
     }
     
@@ -71,7 +75,12 @@ class CameraViewController: UIViewController {
             } catch let error1 as NSError {
                 error = error1
                 input = nil
-                print(error!.localizedDescription)
+                DispatchQueue.main.async(){
+                    let alert = UIAlertController(title: prumtMeErrorTitle , message:  "We encountered a problem with the camera. Sorry, please relaunch the app completely...", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
             
             
@@ -107,11 +116,13 @@ class CameraViewController: UIViewController {
     }
     
     @IBAction fileprivate func shareResult(_ sender: Any) {
-        MBProgressHUD.showAdded(to: view, animated: true)
+        MBProgressHUD.showAdded(to: view, animated: false)
         makeScreenShot {[weak self] (image) in
             if let image = image {
-                let shareText = String(format: "Oops, %d%% in common with him...", self?.prumtResult ?? 0)
+                let shareText = String(format: "Oops, %d%% in common with him... #PrumtMe : a sort of Machine Learning experiment... http://prumt.me", self?.prumtResult ?? 0)
+                let title = "PrumtMe : Machine Learning experiment..."
                 let vc = UIActivityViewController(activityItems: [shareText, image], applicationActivities: [])
+                vc.setValue(title, forKeyPath: "Subject")
                 DispatchQueue.main.async(){
                     if let view = self?.view {
                         MBProgressHUD.hide(for: view, animated: true)
@@ -136,14 +147,16 @@ class CameraViewController: UIViewController {
 
     @IBAction fileprivate func toggleVideo() {
         if !isFrozen {
-            displayAd(delay: 5)
             previewImage.isHidden = false
             previewImage.image = nil
-            MBProgressHUD.showAdded(to: view, animated: true)
+            MBProgressHUD.showAdded(to: view, animated: false)
             nbrAttemptForPhoto = 0
             capturePhoto()
         } else {
             previewImage.isHidden = true
+            if let session = session, session.canAddOutput(videoDataOutput) {
+                session.addOutput(videoDataOutput)
+            }
             session?.startRunning()
         }
         isFrozen = !isFrozen
@@ -160,12 +173,20 @@ class CameraViewController: UIViewController {
     }
     
     fileprivate func switchButtons() {
-        UIView.animate(withDuration: 0.4,
-                       animations: {
-                        self.bottomShareConstraint.constant = self.isFrozen ? bottomConstantButton : outConstantButton
-                        self.bottomSwitchCameraConstraint.constant = self.isFrozen ? outConstantButton : bottomConstantButton
-                        self.view.layoutIfNeeded()
-        })
+        let deadlineTime = DispatchTime.now() + .milliseconds(400)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            UIView.animate(withDuration: 0.6,
+                           delay: 0,
+                           options: .curveEaseOut,
+                           animations: {
+                            self.bottomShareConstraint.constant = self.isFrozen ? bottomConstantButton : outConstantButton
+                            self.bottomSwitchCameraConstraint.constant = self.isFrozen ? outConstantButton : bottomConstantButton
+                            self.bottomInfoConstraint.constant = self.isFrozen ? outConstantButton : bottomConstantButton
+                            self.bottomPrumtMeView.constant = self.isFrozen ? 55 : 36
+                            self.view.layoutIfNeeded()
+            })
+        }
+        
     }
     
     fileprivate func updateResultLabel() {
@@ -299,23 +320,29 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ captureOutput: AVCaptureOutput!,
                        didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
                        from connection: AVCaptureConnection!) {
-        print("received")
         if let tensorFlowManager = TensorFlowManager.shared(),
             tensorFlowManager.modelIsLoaded,
             let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
         {
             tensorFlowManager.runCNN(onFrame: pixelBuffer, completion: {[weak self] (results, error) in
                 if let isFrozen = self?.isFrozen, !isFrozen {
-                    if let tmpResult = results?["trump"] as? Float {
-                        self?.prumtResult = Int(tmpResult * 100)
+                    if let tmpResult = results?[prumtNodeName] as? Float {
+                        self?.addToPrumtResult(newResult: Int(tmpResult * 100))
                     } else {
-                        self?.prumtResult = 0
-                    }
-                    DispatchQueue.main.async {
-                        self?.updateResultLabel()
+                        self?.addToPrumtResult(newResult: 0)
                     }
                 }
             })
+        }
+    }
+    
+    private func addToPrumtResult(newResult: Int) {
+        if prumtResults.count > 9 {
+            prumtResults.removeFirst()
+        }
+        prumtResults.append(newResult)
+        DispatchQueue.main.async {
+            self.updateResultLabel()
         }
     }
     
@@ -330,18 +357,25 @@ extension CameraViewController: AdViewControllerDelegate {
         displayAd()
     }
     
-    fileprivate func displayAd(delay: Int = 10) {
-        UIView.animate(withDuration: 0.4,
+    fileprivate func displayAd(delay: Int = 6) {
+        UIView.animate(withDuration: 0.6,
+                       delay: 0,
+                       options: .curveEaseOut,
                        animations: {
                         self.adViewTopConstraint.constant = 60
                         self.view.layoutIfNeeded()
-        }) { (completed) in
+        }) {[weak self] (completed) in
             let deadlineTime = DispatchTime.now() + .seconds(delay)
+            if let session = self?.session, session.canAddOutput(self?.videoDataOutput) {
+                session.addOutput(self?.videoDataOutput)
+                session.startRunning()
+            }
+            
             DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
                 UIView.animate(withDuration: 0.4,
                                animations: {
-                                self.adViewTopConstraint.constant = -200
-                                self.view.layoutIfNeeded()
+                                self?.adViewTopConstraint.constant = -200
+                                self?.view.layoutIfNeeded()
                 })
             }
         }
