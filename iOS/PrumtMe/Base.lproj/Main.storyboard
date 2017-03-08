@@ -38,11 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="eCk-pd-sLs">
-                                <rect key="frame" x="0.0" y="-5" width="375" height="677"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="AYv-DV-ulY"/>
-                                    <constraint firstAttribute="height" constant="677" id="DQx-TF-fHK"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJG-Dv-2NF">
                                 <rect key="frame" x="130" y="479" width="114" height="117"/>
@@ -105,13 +101,15 @@ During the presentation, everyone was laughing and wanted to know how much of «
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bJG-Dv-2NF" secondAttribute="bottom" constant="71" id="1wZ-gi-s1f"/>
+                            <constraint firstAttribute="trailing" secondItem="eCk-pd-sLs" secondAttribute="trailing" id="45J-zV-bXd"/>
+                            <constraint firstAttribute="bottom" secondItem="eCk-pd-sLs" secondAttribute="bottom" id="CRO-gI-DN1"/>
+                            <constraint firstItem="eCk-pd-sLs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DwY-g0-3xm"/>
+                            <constraint firstItem="eCk-pd-sLs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Q4h-h9-BJN"/>
                             <constraint firstItem="bJG-Dv-2NF" firstAttribute="top" secondItem="cPd-Sl-3OP" secondAttribute="bottom" constant="20" id="Sv8-YD-9BW"/>
                             <constraint firstAttribute="trailing" secondItem="cPd-Sl-3OP" secondAttribute="trailing" constant="30" id="Ti9-6o-UA0"/>
                             <constraint firstItem="cPd-Sl-3OP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="Tm9-Pj-PS2"/>
                             <constraint firstItem="cPd-Sl-3OP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="WtG-Hx-7Jz"/>
                             <constraint firstItem="bJG-Dv-2NF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gHN-CR-Nmr"/>
-                            <constraint firstItem="eCk-pd-sLs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sRE-k3-Udb"/>
-                            <constraint firstItem="eCk-pd-sLs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="v0q-SB-cx7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EG4-n8-7vf"/>
@@ -157,11 +155,7 @@ During the presentation, everyone was laughing and wanted to know how much of «
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="P62-oZ-rjQ">
-                                <rect key="frame" x="0.0" y="-5" width="375" height="677"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="EfC-hh-p5o"/>
-                                    <constraint firstAttribute="height" constant="677" id="v1N-pS-fEm"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffs-Uv-7Fj">
                                 <rect key="frame" x="315" y="30" width="50" height="50"/>
@@ -223,14 +217,16 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ob7-pf-Fa1" firstAttribute="leading" secondItem="kMr-zl-gwg" secondAttribute="leading" constant="30" id="2WB-me-4ij"/>
+                            <constraint firstItem="P62-oZ-rjQ" firstAttribute="leading" secondItem="kMr-zl-gwg" secondAttribute="leading" id="3HR-C8-Uz4"/>
                             <constraint firstItem="FG8-y7-U3C" firstAttribute="top" secondItem="9W9-Rj-AKa" secondAttribute="bottom" constant="20" id="DP1-AX-wf3"/>
-                            <constraint firstItem="P62-oZ-rjQ" firstAttribute="centerX" secondItem="kMr-zl-gwg" secondAttribute="centerX" id="Hqv-0X-lc2"/>
                             <constraint firstItem="ffs-Uv-7Fj" firstAttribute="top" secondItem="Y8q-Jt-OHl" secondAttribute="bottom" constant="10" id="I68-BE-wIR"/>
                             <constraint firstAttribute="trailing" secondItem="ffs-Uv-7Fj" secondAttribute="trailing" constant="10" id="PhF-AI-z2j"/>
                             <constraint firstItem="Ob7-pf-Fa1" firstAttribute="top" secondItem="fnl-v4-3wj" secondAttribute="bottom" constant="20" id="V7l-3P-G6y"/>
                             <constraint firstAttribute="trailing" secondItem="Ob7-pf-Fa1" secondAttribute="trailing" constant="30" id="aSp-K8-Ng4"/>
                             <constraint firstItem="9W9-Rj-AKa" firstAttribute="leading" secondItem="kMr-zl-gwg" secondAttribute="leading" constant="30" id="bD6-s1-i0K"/>
-                            <constraint firstItem="P62-oZ-rjQ" firstAttribute="centerY" secondItem="kMr-zl-gwg" secondAttribute="centerY" id="htZ-W8-kcs"/>
+                            <constraint firstItem="P62-oZ-rjQ" firstAttribute="top" secondItem="kMr-zl-gwg" secondAttribute="top" id="eog-dl-XwH"/>
+                            <constraint firstAttribute="trailing" secondItem="P62-oZ-rjQ" secondAttribute="trailing" id="gey-QT-vQe"/>
+                            <constraint firstAttribute="bottom" secondItem="P62-oZ-rjQ" secondAttribute="bottom" id="kOu-UF-vTI"/>
                             <constraint firstAttribute="bottom" secondItem="Ob7-pf-Fa1" secondAttribute="bottom" constant="15" id="nmv-RU-FJZ"/>
                             <constraint firstItem="fnl-v4-3wj" firstAttribute="top" secondItem="FG8-y7-U3C" secondAttribute="bottom" constant="25" id="nqr-no-Ihy"/>
                             <constraint firstItem="9W9-Rj-AKa" firstAttribute="top" secondItem="ffs-Uv-7Fj" secondAttribute="bottom" constant="8" id="vRm-Ek-FTg"/>
@@ -258,11 +254,7 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="QC2-zo-vdr">
-                                <rect key="frame" x="0.0" y="-5" width="375" height="677"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="677" id="DzI-8u-27a"/>
-                                    <constraint firstAttribute="width" constant="375" id="Snq-n1-5RC"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3U-Ge-LEj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -279,7 +271,7 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                                         <rect key="frame" x="112" y="481" width="150" height="150"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prumtButton" translatesAutoresizingMaskIntoConstraints="NO" id="4tD-kX-wjh">
-                                                <rect key="frame" x="20" y="11.5" width="114" height="117"/>
+                                                <rect key="frame" x="20" y="12" width="114" height="117"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="114" id="Scb-zQ-QeI"/>
                                                     <constraint firstAttribute="height" constant="117" id="m62-BG-JFs"/>
@@ -330,6 +322,13 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                                     <constraint firstAttribute="trailing" secondItem="mUO-br-1IM" secondAttribute="trailing" id="uab-CJ-eIX"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="target" translatesAutoresizingMaskIntoConstraints="NO" id="Qzz-lW-akJ">
+                                <rect key="frame" x="49" y="167" width="276" height="276"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="p3R-MR-wbR"/>
+                                    <constraint firstAttribute="height" constant="276" id="tgy-BZ-Lmk"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cx-Dd-AXV">
                                 <rect key="frame" x="16" y="621" width="29" height="30"/>
                                 <constraints>
@@ -342,7 +341,7 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idw-OM-Nkv">
-                                <rect key="frame" x="162.5" y="601" width="50" height="50"/>
+                                <rect key="frame" x="163" y="601" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Loc-P9-7CV"/>
                                     <constraint firstAttribute="height" constant="50" id="NTU-ah-uFp"/>
@@ -373,18 +372,22 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="a0I-A7-850" firstAttribute="centerX" secondItem="Gbo-7x-aWt" secondAttribute="centerX" id="0DL-Fs-wKX"/>
-                            <constraint firstItem="QC2-zo-vdr" firstAttribute="centerY" secondItem="Gbo-7x-aWt" secondAttribute="centerY" id="Klv-NA-sRQ"/>
+                            <constraint firstAttribute="trailing" secondItem="QC2-zo-vdr" secondAttribute="trailing" id="243-sM-KUU"/>
+                            <constraint firstItem="Qzz-lW-akJ" firstAttribute="centerX" secondItem="Gbo-7x-aWt" secondAttribute="centerX" id="3MM-q0-iKx"/>
+                            <constraint firstItem="QC2-zo-vdr" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" id="9cM-ao-mdf"/>
                             <constraint firstItem="a3U-Ge-LEj" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" id="MC2-Zh-NJ0"/>
+                            <constraint firstItem="Qzz-lW-akJ" firstAttribute="centerY" secondItem="Gbo-7x-aWt" secondAttribute="centerY" constant="-28.5" id="Mep-qn-8Qb"/>
                             <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="2cx-Dd-AXV" secondAttribute="bottom" constant="16" id="Pu7-Jk-8Bi"/>
                             <constraint firstItem="a0I-A7-850" firstAttribute="top" secondItem="Gbo-7x-aWt" secondAttribute="top" constant="40" id="Vlh-OG-mq8"/>
                             <constraint firstAttribute="bottom" secondItem="a3U-Ge-LEj" secondAttribute="bottom" id="Zkr-yV-f1x"/>
                             <constraint firstItem="2cx-Dd-AXV" firstAttribute="leading" secondItem="Gbo-7x-aWt" secondAttribute="leading" constant="16" id="bMf-eJ-itI"/>
+                            <constraint firstItem="QC2-zo-vdr" firstAttribute="top" secondItem="Gbo-7x-aWt" secondAttribute="top" id="bvn-XH-RqB"/>
                             <constraint firstAttribute="trailing" secondItem="BMA-11-Vzm" secondAttribute="trailing" constant="16" id="chf-uC-LZp"/>
                             <constraint firstItem="a3U-Ge-LEj" firstAttribute="top" secondItem="Gbo-7x-aWt" secondAttribute="top" id="g1K-W3-3CB"/>
                             <constraint firstAttribute="trailing" secondItem="a3U-Ge-LEj" secondAttribute="trailing" id="guh-Hi-6JG"/>
                             <constraint firstAttribute="bottom" secondItem="Idw-OM-Nkv" secondAttribute="bottom" constant="16" id="kwo-Vo-NUi"/>
+                            <constraint firstAttribute="bottom" secondItem="QC2-zo-vdr" secondAttribute="bottom" id="oZq-Md-haH"/>
                             <constraint firstItem="LrR-bJ-gri" firstAttribute="top" secondItem="BMA-11-Vzm" secondAttribute="bottom" constant="16" id="s6i-5C-fuH"/>
-                            <constraint firstItem="QC2-zo-vdr" firstAttribute="centerX" secondItem="Gbo-7x-aWt" secondAttribute="centerX" id="sTw-Pv-7rM"/>
                             <constraint firstItem="Idw-OM-Nkv" firstAttribute="centerX" secondItem="Gbo-7x-aWt" secondAttribute="centerX" id="z6E-NC-2mF"/>
                         </constraints>
                     </view>
@@ -406,12 +409,13 @@ www.tensorflow.org (for ML), thenounproject.com (for design and logo), www.produ
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="375" height="667"/>
+        <image name="background" width="430" height="750"/>
         <image name="backgroundText" width="168" height="32"/>
         <image name="cameraButton" width="50" height="50"/>
         <image name="closeButton" width="50" height="50"/>
         <image name="infoButton" width="29" height="30"/>
         <image name="prumtButton" width="101" height="104"/>
         <image name="shareButton" width="50" height="50"/>
+        <image name="target" width="276" height="276"/>
     </resources>
 </document>

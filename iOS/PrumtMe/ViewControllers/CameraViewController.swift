@@ -49,11 +49,13 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setAVSession()
+        session = AVCaptureSession()
         adViewTopConstraint.constant = outConstantButton
         bottomSwitchCameraConstraint.constant = bottomConstantButton
         bottomInfoConstraint.constant = bottomConstantButton
         bottomShareConstraint.constant = outConstantButton
+        
+        setAVSession()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,9 +66,8 @@ class CameraViewController: UIViewController {
     
     
     private func setAVSession() {
-        session = AVCaptureSession()
         if let session = session {
-            session.sessionPreset = AVCaptureSessionPreset640x480
+            session.sessionPreset = AVCaptureSessionPresetHigh
             let backCamera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
             var error: NSError?
             var input: AVCaptureDeviceInput!
@@ -103,9 +104,8 @@ class CameraViewController: UIViewController {
                     session.addOutput(videoDataOutput)
                     videoDataOutput?.connection(withMediaType: AVMediaTypeVideo).isEnabled = true
                     videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-                    videoPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
                     videoPreviewLayer!.connection?.videoOrientation = .portrait
-                    videoPreviewLayer!.frame = previewView.bounds
+                    videoPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
                     previewView.layer.addSublayer(videoPreviewLayer!)
                     session.startRunning()
                 }
@@ -114,6 +114,13 @@ class CameraViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        videoPreviewLayer!.frame = previewView.bounds
+    }
+    
+    
     
     @IBAction fileprivate func shareResult(_ sender: Any) {
         MBProgressHUD.showAdded(to: view, animated: false)
@@ -288,7 +295,6 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
                 DispatchQueue.main.async(){
                     self.previewImage.image = image
                     MBProgressHUD.hide(for: self.view, animated: true)
-                    self.session?.stopRunning()
                 }
             
             
@@ -337,13 +343,24 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     private func addToPrumtResult(newResult: Int) {
-        if prumtResults.count > 9 {
+        if prumtResults.count == 10 {
             prumtResults.removeFirst()
         }
         prumtResults.append(newResult)
         DispatchQueue.main.async {
             self.updateResultLabel()
         }
+        if prumtResults.count == 10, prumtResults.reduce(0, { (result, value) -> Int in
+            return value == newResult ? result : result + 1
+        }) == 0 {
+            DispatchQueue.main.async(){
+                let alert = UIAlertController(title: prumtMeErrorTitle , message:  "It seems the detection is frozen. If so, we apologize and suggest you to relaunch the app completely...", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
     }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!,
